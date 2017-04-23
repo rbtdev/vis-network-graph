@@ -1,0 +1,9 @@
+body {
+    background: $body-background-color;
+    margin: $body-margin;
+}
+
+#hello-world {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
