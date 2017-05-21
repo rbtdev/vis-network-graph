@@ -6,15 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf ./dist/* && mkdir -p ./dist/js ./dist/css",
+    "build-img": "cp -r ./src/app/img ./dist/img",
     "build-css": "node-sass --include-path ./src/app/scss ./src/app/scss/index.scss ./dist/css/app.css && echo 'CSS build complete'",
     "build-js-dev": "browserify --debug ./src/app/js/index.js -o ./dist/js/app.js && echo 'JS build complete'",
-    "build-dev": "npm run clean npm run clean && npm run build-css && npm run build-js-dev",
-    "watch": "npm run clean && watch 'npm run build-js-dev' ./src/app/js & watch  'npm run build-css' ./src/app/scss"
+    "build-dev": "npm run clean && npm run build-css && npm run build-js-dev && npm run build-img",
+    "watch": "npm run clean && watch 'npm run build-js-dev' ./src/app/js & watch  'npm run build-css' ./src/app/scss && watch  'npm run build-img' ./src/app/img"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.2.1"
+    "vis": "^4.19.1"
   },
   "devDependencies": {
     "browserify": "^14.3.0",

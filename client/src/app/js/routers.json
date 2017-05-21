@@ -1,0 +1,39 @@
+[{
+    "name": "Router 1",
+    "networks": [{
+        "interface": "wlo1",
+        "address": "192.168.0.1",
+        "cidr": "192.168.0.0/24",
+        "netmask": "255.255.255.0",
+        "family": "IPv4",
+        "mac": "8c:a9:82:46:2a:ec",
+        "internal": false
+    }, {
+        "interface": "wlo2",
+        "address": "192.168.1.1",
+        "cidr": "192.168.1.0/24",
+        "netmask": "255.255.255.0",
+        "family": "IPv4",
+        "mac": "8c:a9:82:46:2a:ed",
+        "internal": false
+    }]
+}, {
+    "name": "Router 2",
+    "networks": [{
+        "interface": "wlo1",
+        "address": "192.168.0.1",
+        "cidr": "192.168.0.0/24",
+        "netmask": "255.255.255.0",
+        "family": "IPv4",
+        "mac": "8c:a9:82:46:2a:ec",
+        "internal": false
+    }, {
+        "interface": "wlo2",
+        "address": "192.168.2.1",
+        "cidr": "192.168.2.0/24",
+        "netmask": "255.255.255.0",
+        "family": "IPv4",
+        "mac": "8c:a9:82:46:2a:ed",
+        "internal": false
+    }]
+}]
