@@ -20,58 +20,72 @@ var inSubNet = function (ip, subnet) {
     } else return false;
 };
 
-function construct(hosts, routers) {
+function construct(hosts, opts) {
     var nodes = [];
     var edges = [];
     var networks = {};
+    var nodeMap = {};
 
-    routers.forEach(function (router, i) {
-        var routerNode = {
-            id: 'router_' + i,
-            label: router.name,
-            image: 'dist/img/router.png',
-            shape: 'image',
-            details: router
-        }
-        nodes.push(routerNode);
-        router.networks.forEach(function (network) {
-            // add to networks if not already there
-            if (!networks[network.cidr]) {
-                networks[network.cidr] = network;
-                var networkNode = {
-                    id: network.cidr,
-                    label: network.cidr,
-                    image: 'dist/img/interface.png',
-                    shape: 'image',
-                    details: network
+    var routerId = 0;
+    hosts.forEach(function (host, i) {
+        if (host.type === 'router') {
+            var image = opts.images ? opts.images['router'] : undefined;
+            var shape = image ? 'image' : undefined;
+            var routerNode = {
+                id: 'router_' + routerId++,
+                label: host.hostname,
+                image: image,
+                shape: shape,
+                details: host
+            }
+            if (nodeMap[routerNode.id]) debugger
+            else nodeMap[routerNode.id] = routerNode;
+            nodes.push(routerNode);
+            host.networks.forEach(function (network) {
+                // add to networks if not already there
+                if (!networks[network.cidr]) {
+                    networks[network.cidr] = network;
+                    var image = opts.images ? opts.images['network'] : undefined;
+                    var shape = image ? 'image' : undefined;
+                    var networkNode = {
+                        id: network.cidr,
+                        label: network.cidr,
+                        image: image,
+                        shape: shape,
+                        details: network
+                    }
+                    if (nodeMap[networkNode.id]) debugger
+                    else nodeMap[networkNode.id] = networkNode;
+                    nodes.push(networkNode);
                 }
-                nodes.push(networkNode);
-            }
-            edges.push({
-                from: network.cidr,
-                to: routerNode.id
-            })
-        })
-    });
-
-    hosts.forEach(function (host) {
-        var hostNode = {
-            id: host.ip,
-            label: host.ip,
-            image: 'dist/img/computer.png',
-            shape: 'image',
-            details: host
-        }
-        nodes.push(hostNode);
-        debugger
-        Object.keys(networks).forEach(function (networkId) {
-            if (inSubNet(host.ip, networks[networkId].cidr)) {
                 edges.push({
-                    from: hostNode.id,
-                    to: networkId
+                    from: network.cidr,
+                    to: routerNode.id,
+                    label: network.address
                 })
+            })
+        } else if (host.type === 'computer') {
+            var image = opts.images ? opts.images['computer'] : undefined;
+            var shape = image ? 'image' : undefined;
+            var hostNode = {
+                id: host.ip,
+                label: host.ip,
+                image: image,
+                shape: shape,
+                details: host
             }
-        })
+            if (nodeMap[hostNode.id]) debugger
+            else nodeMap[hostNode.id] = hostNode;
+            nodes.push(hostNode);
+            Object.keys(networks).forEach(function (networkId) {
+                if (inSubNet(host.ip, networks[networkId].cidr)) {
+                    edges.push({
+                        from: hostNode.id,
+                        to: networkId
+                    })
+                }
+            })
+        }
     });
     return {
         nodes: nodes,
@@ -80,8 +94,8 @@ function construct(hosts, routers) {
 }
 
 
-function Graph(hosts, routers) {
-    var graph = construct(hosts, routers);
+function Graph(hosts, opts) {
+    var graph = construct(hosts, opts);
     this.nodes = graph.nodes;
     this.edges = graph.edges;
 }

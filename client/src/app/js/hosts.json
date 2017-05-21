@@ -1,13 +1,46 @@
  [{
+         "hostname": "Router 1",
+         "type": "router",
+         "networks": [{
+             "interface": "wlo1",
+             "address": "192.168.0.1",
+             "cidr": "192.168.0.0/24",
+             "netmask": "255.255.255.0",
+             "family": "IPv4",
+             "mac": "8c:a9:82:46:2a:ec",
+             "internal": false
+         }, {
+             "interface": "wlo2",
+             "address": "192.168.1.1",
+             "cidr": "192.168.1.0/24",
+             "netmask": "255.255.255.0",
+             "family": "IPv4",
+             "mac": "8c:a9:82:46:2a:ed",
+             "internal": false
+         }]
+     }, {
+         "hostname": "Router 2",
+         "type": "router",
+         "networks": [{
+             "interface": "wlo1",
+             "address": "192.168.0.2",
+             "cidr": "192.168.0.0/24",
+             "netmask": "255.255.255.0",
+             "family": "IPv4",
+             "mac": "8c:a9:82:46:2a:ec",
+             "internal": false
+         }, {
+             "interface": "wlo2",
+             "address": "192.168.2.1",
+             "cidr": "192.168.2.0/24",
+             "netmask": "255.255.255.0",
+             "family": "IPv4",
+             "mac": "8c:a9:82:46:2a:ed",
+             "internal": false
+         }]
+     }, {
          "hostname": null,
-         "ip": "192.168.0.1",
-         "mac": "AC:B3:13:A7:08:37",
-         "openPorts": [],
-         "vendor": "Arris Group",
-         "osNmap": "Linksys"
-     },
-     {
-         "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.3",
          "mac": "0C:51:01:B6:19:13",
          "openPorts": [],
@@ -15,6 +48,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.4",
          "mac": "C0:56:E3:44:05:0F",
          "openPorts": [],
@@ -23,6 +57,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.5",
          "mac": "00:CD:FE:9F:87:0D",
          "openPorts": [],
@@ -31,6 +66,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.7",
          "mac": "BC:85:56:A4:8D:3B",
          "openPorts": [],
@@ -39,6 +75,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.8",
          "mac": "00:11:62:14:D5:56",
          "openPorts": [],
@@ -47,6 +84,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.10",
          "mac": "EC:8E:B5:B6:97:C7",
          "openPorts": [],
@@ -54,6 +92,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.12",
          "mac": "10:02:B5:40:28:88",
          "openPorts": [],
@@ -62,6 +101,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.15",
          "mac": "0C:51:01:B4:C9:03",
          "openPorts": [],
@@ -69,6 +109,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.16",
          "mac": "A4:D1:8C:83:04:3C",
          "openPorts": [],
@@ -77,6 +118,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.18",
          "mac": "00:11:62:15:9E:3A",
          "openPorts": [],
@@ -85,6 +127,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.19",
          "mac": "0C:51:01:B4:C9:4A",
          "openPorts": [],
@@ -92,6 +135,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.22",
          "mac": "60:57:18:75:BF:9D",
          "openPorts": [],
@@ -100,6 +144,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.24",
          "mac": "60:F1:89:47:83:B2",
          "openPorts": [],
@@ -108,6 +153,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.25",
          "mac": "84:78:8B:9C:6C:8E",
          "openPorts": [],
@@ -116,6 +162,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.27",
          "mac": "00:11:62:14:D5:63",
          "openPorts": [],
@@ -124,21 +171,16 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.0.79",
          "mac": "50:C8:E5:7E:F6:76",
          "openPorts": [],
          "vendor": "Samsung Electronics",
          "osNmap": null
-     }, {
-         "hostname": null,
-         "ip": "192.168.1.1",
-         "mac": "AC:B3:13:A7:08:37",
-         "openPorts": [],
-         "vendor": "Arris Group",
-         "osNmap": null
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.3",
          "mac": "0C:51:01:B6:19:13",
          "openPorts": [],
@@ -146,6 +188,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.4",
          "mac": "C0:56:E3:44:05:0F",
          "openPorts": [],
@@ -154,6 +197,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.5",
          "mac": "00:CD:FE:9F:87:0D",
          "openPorts": [],
@@ -162,6 +206,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.7",
          "mac": "BC:85:56:A4:8D:3B",
          "openPorts": [],
@@ -170,6 +215,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.8",
          "mac": "00:11:62:14:D5:56",
          "openPorts": [],
@@ -178,6 +224,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.10",
          "mac": "EC:8E:B5:B6:97:C7",
          "openPorts": [],
@@ -185,6 +232,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.12",
          "mac": "10:02:B5:40:28:88",
          "openPorts": [],
@@ -193,6 +241,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.15",
          "mac": "0C:51:01:B4:C9:03",
          "openPorts": [],
@@ -200,6 +249,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.16",
          "mac": "A4:D1:8C:83:04:3C",
          "openPorts": [],
@@ -208,6 +258,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.18",
          "mac": "00:11:62:15:9E:3A",
          "openPorts": [],
@@ -216,6 +267,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.19",
          "mac": "0C:51:01:B4:C9:4A",
          "openPorts": [],
@@ -223,6 +275,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.22",
          "mac": "60:57:18:75:BF:9D",
          "openPorts": [],
@@ -231,6 +284,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.24",
          "mac": "60:F1:89:47:83:B2",
          "openPorts": [],
@@ -239,6 +293,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.25",
          "mac": "84:78:8B:9C:6C:8E",
          "openPorts": [],
@@ -247,6 +302,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.27",
          "mac": "00:11:62:14:D5:63",
          "openPorts": [],
@@ -255,6 +311,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.1.79",
          "mac": "50:C8:E5:7E:F6:76",
          "openPorts": [],
@@ -262,6 +319,7 @@
          "osNmap": null
      }, {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.2.16",
          "mac": "A4:D1:8C:83:04:3C",
          "openPorts": [],
@@ -270,6 +328,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.2.18",
          "mac": "00:11:62:15:9E:3A",
          "openPorts": [],
@@ -278,6 +337,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.2.19",
          "mac": "0C:51:01:B4:C9:4A",
          "openPorts": [],
@@ -285,6 +345,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.2.22",
          "mac": "60:57:18:75:BF:9D",
          "openPorts": [],
@@ -293,6 +354,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.2.24",
          "mac": "60:F1:89:47:83:B2",
          "openPorts": [],
@@ -301,6 +363,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.2.25",
          "mac": "84:78:8B:9C:6C:8E",
          "openPorts": [],
@@ -309,6 +372,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.2.27",
          "mac": "00:11:62:14:D5:63",
          "openPorts": [],
@@ -317,6 +381,7 @@
      },
      {
          "hostname": null,
+         "type": "computer",
          "ip": "192.168.2.79",
          "mac": "50:C8:E5:7E:F6:76",
          "openPorts": [],
