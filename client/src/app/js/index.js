@@ -27,4 +27,19 @@ $(document).ready(function () {
     };
     var network = new vis.Network(container, data, options);
     console.log("Seed = " + network.getSeed())
+
+    network.on("selectNode", function (params) {
+        if (params.nodes.length == 1) {
+            if (network.isCluster(params.nodes[0]) == true) {
+                network.openCluster(params.nodes[0]);
+            } else {
+                network.clusterByConnection(params.nodes[0], {
+                    joinCondition: function (clusterNode, connectedNode) {
+                        var join = ['router', 'firewall', 'network'].indexOf(connectedNode.details.type) < 0;
+                        return (join)
+                    }
+                });
+            }
+        }
+    });
 })

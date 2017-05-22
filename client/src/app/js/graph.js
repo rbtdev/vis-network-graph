@@ -25,28 +25,28 @@ function construct(hosts, opts) {
     var edges = [];
     var networks = {};
     var nodeMap = {};
+    var nodeId = 0;
 
-    var deviceId = 0;
     hosts.forEach(function (host, i) {
 
         // If this is a router/firewall, add it as a node, and add it's networks
         if (host.networks) {
-            var id = deviceId++;
-            var node = addNode(deviceId, host);
+            var node = addNode(host);
 
             // Add each network this router is connected to
             host.networks.forEach(function (network) {
                 // add to networks if not already there
                 if (!networks[network.cidr]) {
-                    networks[network.cidr] = network;
+
                     network.hostname = network.cidr;
                     network.type = 'network';
-                    var networkNode = addNode(network.cidr, network);
+                    var networkNode = addNode(network);
+                    networks[network.cidr] = networkNode;
                 }
 
                 // connect the network to the router
                 edges.push({
-                    from: network.cidr,
+                    from: networks[network.cidr].id,
                     to: node.id,
                     label: network.address
                 })
@@ -55,17 +55,16 @@ function construct(hosts, opts) {
 
             // Add a host to the node list and connect it to the appropriate network
             if (!host.hostname) host.hostname = host.ip;
-            var id = host.ip;
-            var node = addNode(id, host);
+            var node = addNode(host);
 
             // Find the network that this host belongs to
             Object.keys(networks).forEach(function (networkId) {
-                if (inSubNet(host.ip, networks[networkId].cidr)) {
+                if (inSubNet(host.ip, networkId)) {
 
                     // connect the host to the network
                     edges.push({
                         from: node.id,
-                        to: networkId,
+                        to: networks[networkId].id,
                         title: "<pre>" + JSON.stringify(host, null, 2) + "</pre>"
                     })
                 }
@@ -77,11 +76,11 @@ function construct(hosts, opts) {
         edges: edges
     }
 
-    function addNode(id, entity) {
+    function addNode(entity) {
         var image = opts.images ? opts.images[entity.type] : undefined;
         var shape = image ? 'image' : undefined;
         var node = {
-            id: id,
+            id: nodeId++,
             label: entity.hostname,
             image: image,
             shape: shape,
