@@ -3,8 +3,28 @@
          "type": "router",
          "networks": [{
              "interface": "wlo1",
-             "address": "192.168.0.1",
-             "cidr": "192.168.0.0/24",
+             "address": "10.10.0.1",
+             "cidr": "10.10.0.0/24",
+             "netmask": "255.255.255.0",
+             "family": "IPv4",
+             "mac": "8c:a9:82:46:2a:ec",
+             "internal": false
+         }, {
+             "interface": "wlo2",
+             "address": "10.10.1.1",
+             "cidr": "10.10.1.0/24",
+             "netmask": "255.255.255.0",
+             "family": "IPv4",
+             "mac": "8c:a9:82:46:2a:ed",
+             "internal": false
+         }]
+     }, {
+         "hostname": "Firewall 1",
+         "type": "firewall",
+         "networks": [{
+             "interface": "wlo1",
+             "address": "10.10.0.1",
+             "cidr": "10.10.0.0/24",
              "netmask": "255.255.255.0",
              "family": "IPv4",
              "mac": "8c:a9:82:46:2a:ec",
@@ -37,6 +57,14 @@
              "family": "IPv4",
              "mac": "8c:a9:82:46:2a:ed",
              "internal": false
+         }, {
+             "interface": "wlo3",
+             "address": "192.168.1.2",
+             "cidr": "192.168.1.0/24",
+             "netmask": "255.255.255.0",
+             "family": "IPv4",
+             "mac": "8c:a9:82:46:2a:ed",
+             "internal": false
          }]
      }, {
          "hostname": null,
@@ -48,7 +76,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "laptop",
          "ip": "192.168.0.4",
          "mac": "C0:56:E3:44:05:0F",
          "openPorts": [],
@@ -75,7 +103,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "laptop",
          "ip": "192.168.0.8",
          "mac": "00:11:62:14:D5:56",
          "openPorts": [],
@@ -101,7 +129,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "laptop",
          "ip": "192.168.0.15",
          "mac": "0C:51:01:B4:C9:03",
          "openPorts": [],
@@ -153,7 +181,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "tablet",
          "ip": "192.168.0.25",
          "mac": "84:78:8B:9C:6C:8E",
          "openPorts": [],
@@ -162,7 +190,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "tablet",
          "ip": "192.168.0.27",
          "mac": "00:11:62:14:D5:63",
          "openPorts": [],
@@ -215,7 +243,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "tablet",
          "ip": "192.168.1.8",
          "mac": "00:11:62:14:D5:56",
          "openPorts": [],
@@ -284,7 +312,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "tablet",
          "ip": "192.168.1.24",
          "mac": "60:F1:89:47:83:B2",
          "openPorts": [],
@@ -311,7 +339,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "laptop",
          "ip": "192.168.1.79",
          "mac": "50:C8:E5:7E:F6:76",
          "openPorts": [],
@@ -328,7 +356,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "laptop",
          "ip": "192.168.2.18",
          "mac": "00:11:62:15:9E:3A",
          "openPorts": [],
@@ -372,7 +400,7 @@
      },
      {
          "hostname": null,
-         "type": "computer",
+         "type": "tablet",
          "ip": "192.168.2.27",
          "mac": "00:11:62:14:D5:63",
          "openPorts": [],

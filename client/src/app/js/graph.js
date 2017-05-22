@@ -26,13 +26,13 @@ function construct(hosts, opts) {
     var networks = {};
     var nodeMap = {};
 
-    var routerId = 0;
+    var deviceId = 0;
     hosts.forEach(function (host, i) {
 
-        // If this is a router, add it as a node, and add it's networks
-        if (host.type === 'router') {
-            var id = 'router_' + routerId++;
-            var node = addNode(id, host);
+        // If this is a router/firewall, add it as a node, and add it's networks
+        if (host.networks) {
+            var id = deviceId++;
+            var node = addNode(deviceId, host);
 
             // Add each network this router is connected to
             host.networks.forEach(function (network) {
@@ -51,7 +51,7 @@ function construct(hosts, opts) {
                     label: network.address
                 })
             })
-        } else if (host.type === 'computer') {
+        } else {
 
             // Add a host to the node list and connect it to the appropriate network
             if (!host.hostname) host.hostname = host.ip;
@@ -65,7 +65,8 @@ function construct(hosts, opts) {
                     // connect the host to the network
                     edges.push({
                         from: node.id,
-                        to: networkId
+                        to: networkId,
+                        title: "<pre>" + JSON.stringify(host, null, 2) + "</pre>"
                     })
                 }
             })
@@ -87,9 +88,13 @@ function construct(hosts, opts) {
             details: entity
         }
         node.title = "<pre>" + JSON.stringify(node, null, 2) + "</pre>"
-        if (nodeMap[node.id]) debugger
-        else nodeMap[node.id] = node;
-        nodes.push(node);
+        if (!nodeMap[node.id]) {
+            nodeMap[node.id] = node;
+            nodes.push(node);
+        } else {
+            alert("Duplicate node ID - " + JSON.stringify(node));
+        }
+
         return node;
     }
 }

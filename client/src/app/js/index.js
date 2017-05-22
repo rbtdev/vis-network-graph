@@ -8,7 +8,10 @@ $(document).ready(function () {
         images: {
             computer: 'dist/img/computer.png',
             interface: 'dist/img/interface.png',
-            router: 'dist/img/router.png'
+            router: 'dist/img/router.png',
+            firewall: 'dist/img/firewall.png',
+            laptop: 'dist/img/laptop.png',
+            tablet: 'dist/img/tablet.png'
         }
     }
     var graph = new NetworkGraph(hosts, opts);
